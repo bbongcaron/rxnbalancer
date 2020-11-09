@@ -4,6 +4,7 @@
 #include <stdbool.h>
 #include "node.h"
 
+void getComponents(Node** reactants, Node** products, char* equation);
 /****************************************************************************
   @file   rxnbalancer.c
   @desc   This function will take a chemical equation(s) via stdin without
@@ -16,13 +17,41 @@ int main()
 
   char equation[200];
   printf("Enter an equation OR file name\n");
-  scanf("%s\n", equation);
-  printf("You entered : %s\n", equation);
+  gets(equation);
 
   Node* reactants = NULL;
-  insert(&reactants, equation);
+  Node* products = NULL;
+  getComponents(&reactants, &products, equation);
+  printf("Reactants Linked List: \t");
   printList(&reactants);
-  printf("numNodes = %d\n", listLength(&reactants));
+
+  printf("Reactants Linked List: \t");
+  printList(&products);
 
   return 0;
+}
+
+void getComponents(Node** reactants, Node** products, char* equation)
+{
+  bool onProdSide = 0;
+  char* token = strtok(equation, " ");
+  while(token)
+  {
+    if (strcmp(token, "-->") == 0)
+    {
+      onProdSide = 1;
+    }
+    else if (strcmp(token, "+") != 0){
+      if (onProdSide)
+      {
+        insert(products, token);
+      }
+      else
+      {
+        insert(reactants, token);
+      }
+    }
+    token = strtok(NULL, " ");
+  }
+  printf("\n");
 }

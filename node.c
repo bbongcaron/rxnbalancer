@@ -38,8 +38,9 @@ void printList(Node** head){
   Node* ptr = *head;
   while (ptr)
   {
-    printf("%s\n", ptr->compound);
+    printf("%s -> ", ptr->compound);
     ptr = ptr->next;
   }
+  printf("null\n");
   return;
 }
