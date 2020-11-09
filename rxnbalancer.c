@@ -37,6 +37,11 @@ int main()
   scanf("%s\n", equation);
   printf("You entered : %s\n", equation);
 
+  Node* reactants = NULL;
+  insert(&reactants, equation);
+  printf("reactants->compound = %s\n", reactants->compound);
+  printf("numNodes = %d\n", listLength(&reactants));
+
   //printf("numReactants = %d\n", numReactants);
   //printComponents(reactants, numReactants);
 
