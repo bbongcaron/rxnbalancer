@@ -12,4 +12,7 @@
   int listLength(Node**);
   /* prints the linked list */
   void printList(Node**);
+  /* frees the linked list (and its compound string) */
+  void freeList(Node**);
+
 #endif

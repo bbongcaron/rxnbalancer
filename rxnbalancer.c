@@ -27,7 +27,9 @@ int main()
 
   printf("Reactants Linked List: \t");
   printList(&products);
-
+  
+  freeList(&reactants);
+  freeList(&products);
   return 0;
 }
 

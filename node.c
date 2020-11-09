@@ -44,3 +44,17 @@ void printList(Node** head){
   printf("null\n");
   return;
 }
+
+void freeList(Node** head)
+{
+  Node* ptr = *head;
+  Node* prev = NULL;
+  while (ptr)
+  {
+    prev = ptr;
+    ptr = ptr->next;
+    free(prev->compound);
+    free(prev);
+  }
+  return;
+}
