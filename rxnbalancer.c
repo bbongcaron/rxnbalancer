@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-
+#include <stdbool.h>
 /****************************************************************************
   @desc   Print each string in an array of strings
   @author Brenton Bongcaron brenton3926@gmail.com
@@ -43,7 +43,6 @@ int main(int argc, char* argv[argc+1])
 {
   int numReactants = 0;
   char** reactants = getReactants(argv, argc, &numReactants);
-
   //printf("numReactants = %d\n", numReactants);
   printComponents(reactants, numReactants);
   // Free the malloc'ed reactants matrix
@@ -59,12 +58,10 @@ char** getReactants(char** equation, int argc, int* numReactants)
   /* Count the number of reactants in the equation */
   while (strcmp(equation[index], "=") != 0 && index < (argc + 1))
   {
-    if (strcmp(equation[index], "+") == 0)
+    if (strcmp(equation[index], "+") != 0)
     {
-      index++;
-      continue;
+      countReactants++;
     }
-    countReactants++;
     index++;
   }
   *numReactants = countReactants;
@@ -81,22 +78,21 @@ char** getReactants(char** equation, int argc, int* numReactants)
   /* Insert each reactant into char** reactants */
   while (strcmp(equation[index], "=") != 0 && index < (argc + 1))
   {
-    if (strcmp(equation[index], "+") == 0)
+    if (strcmp(equation[index], "+") != 0)
     {
-      index++;
-      continue;
+      reactants[reactantIndex] = malloc(sizeof(char) * strlen(equation[index]));
+      strcpy(reactants[reactantIndex], equation[index]);
+      reactantIndex++;
     }
-    reactants[reactantIndex] = malloc(sizeof(char) * strlen(equation[index]));
-    strcpy(reactants[reactantIndex], equation[index]);
-    reactantIndex++;
     index++;
   }
   return reactants;
 }
+
 void printComponents(char** components, int numComponents) {
     for (int i = 0; i < numComponents; i++)
     {
-      printf("Component %d: %s\n", i, components[i]);
+      printf("Component %d: %s\n", i + 1, components[i]);
     }
     return;
 }
