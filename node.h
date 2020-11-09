@@ -8,6 +8,7 @@
     char* compound;
   } Node;
 
+  /* inserts Node for newCompound into linked list */
   void insert(Node** head, char* newCompound)
   {
     Node* newNode = malloc(sizeof(Node));
@@ -16,6 +17,8 @@
     newNode->next = *head;
     *head = newNode;
   }
+
+  /* determines the number of nodes in a linked list */
   int listLength(Node** head)
   {
     Node* current = *head;
