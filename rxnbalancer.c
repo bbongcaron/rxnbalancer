@@ -25,6 +25,7 @@ void freeMatrix(char** matrix, int numElements);
                                     equation
           int argc              --> number of "words" in chemical equation
           int* numReactants     --> pointer to number of reactants in equation
+  @return char** containing the strings of each reactant in equation
 *****************************************************************************/
 char** getReactants(char** equation, int argc, int* numReactants);
 
@@ -36,7 +37,7 @@ char** getReactants(char** equation, int argc, int* numReactants);
   @param  a chemical equation without stoichiometric coefficents, using =
           instead of the standard arrow (-->) in the form of a string OR a
           file containing multiple chemical equations in the above format.
-  @return balanced chemical equation(s)
+  @return prints balanced chemical equation(s) in terminal
 *****************************************************************************/
 int main(int argc, char* argv[argc+1])
 {
