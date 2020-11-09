@@ -1,5 +1,6 @@
 #include <stdlib.h>
 #include <string.h>
+#include <stdio.h>
 
 typedef struct Node{
   struct Node* next;
@@ -13,6 +14,7 @@ void insert(Node** head, char* newCompound)
   strcpy(newNode->compound, newCompound);
   newNode->next = *head;
   *head = newNode;
+  return;
 }
 
 int listLength(Node** head)
@@ -30,4 +32,14 @@ int listLength(Node** head)
   }
 
   return numElements;
+}
+
+void printList(Node** head){
+  Node* ptr = *head;
+  while (ptr)
+  {
+    printf("%s\n", ptr->compound);
+    ptr = ptr->next;
+  }
+  return;
 }

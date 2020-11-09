@@ -13,6 +13,7 @@
 *****************************************************************************/
 int main()
 {
+
   char equation[200];
   printf("Enter an equation OR file name\n");
   scanf("%s\n", equation);
@@ -20,7 +21,7 @@ int main()
 
   Node* reactants = NULL;
   insert(&reactants, equation);
-  printf("reactants->compound = %s\n", reactants->compound);
+  printList(&reactants);
   printf("numNodes = %d\n", listLength(&reactants));
 
   return 0;

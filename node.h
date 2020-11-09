@@ -10,5 +10,6 @@
   void insert(Node**, char*);
   /* determines the number of nodes in a linked list */
   int listLength(Node**);
-
+  /* prints the linked list */
+  void printList(Node**);
 #endif
