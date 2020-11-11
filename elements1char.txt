@@ -1,0 +1,15 @@
+C - Carbon
+H - Hydrogen
+O - Oxygen
+N - Nitrogen
+F - Fluorine
+I - Iodine
+K - Potassium
+P - Phosphorus
+S - Sulfur
+B - Boron
+V - Vanadium
+Y - Yttrium
+W - Tungsten
+U - Uranium
+
